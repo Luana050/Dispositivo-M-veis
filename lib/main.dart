@@ -1,39 +1,51 @@
-
-
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Meuapp());
+  runApp(PaginaInical());
 }
 
-class Meuapp extends StatelessWidget {
-  const Meuapp({super.key});
+class PaginaInical extends StatelessWidget {
+PaginaInical({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( home: PaginaInicial(),);
+    return MaterialApp(
+      home: Home(),
+    );
   }
 }
 
-class PaginaInicial extends StatelessWidget {
-const PaginaInicial({super.key});
+class Home extends StatelessWidget {
+Home({super.key});
 
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-     appBar: AppBar(
-      title: Text("Titulo do meuapp"),
-      backgroundColor: Color.fromARGB(255, 228, 28, 95),
-     ),
-     body: Container(
-      alignment: Alignment.center,
-      color: Color.fromARGB(255, 91, 210, 240),
-      child: ElevatedButton(onPressed: () {}
-child: const Text ("CLIQUE AQUI"),
-style: TextStyle(fontSize: 25),
-      
+  @override
+  Widget build(BuildContext context) {
+    String x = "100";
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Meu Aplicativo"),
       ),
-    ),
-     ),
-}
+      body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(x),
+          ElevatedButton(
+            onPressed: () {
+              // AO PRESSIONAR O BOTAO
+              print("Antes de Zerar");
+              print(x);
+              x = "0";
+              print("Depois de Zerar");
+              print(x);
+            },
+            child: Text("Zerar"),
+          
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }
