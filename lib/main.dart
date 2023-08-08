@@ -31,7 +31,7 @@ class Curtir extends StatefulWidget {
 class _CurtirState extends State<Curtir> {
   // uma variável declarada que vai controlar o estado
   bool curtiu = false;
-  int x = 1;
+  int x = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +55,7 @@ class _CurtirState extends State<Curtir> {
               onPressed: () {
                 setState(() {
                   curtiu = true;
+                  x = x+1;
                 });
               },
             ),
