@@ -16,7 +16,40 @@ class PaginaInical extends StatelessWidget {
         '/': (context) => Home(),
         '/contador': (context) => Contador(),
         '/curtir': (context) => Curtir(),
+        '/cadastro': (context) => Cadastro(),
       },
+    );
+  }
+}
+
+class Cadastro extends StatefulWidget {
+  const Cadastro({super.key});
+
+  @override
+  State<Cadastro> createState() => _CadastroState();
+}
+
+class _CadastroState extends State<Cadastro> {
+  // uma variável declarada que vai controlar o estado
+  bool curtiu = false;
+  int x = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Cadastro"),
+        backgroundColor: Color.fromARGB(255, 72, 185, 238),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            
+            
+          ],
+        ),
+      ),
     );
   }
 }
@@ -38,7 +71,6 @@ class _CurtirState extends State<Curtir> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Curtir"),
-  
         backgroundColor: Color.fromARGB(255, 219, 34, 95),
       ),
       body: Center(
@@ -49,13 +81,15 @@ class _CurtirState extends State<Curtir> {
             IconButton(
               iconSize: 150,
               icon: curtiu == true
-                ? Icon(Icons.favorite, color: Colors.pink)
-                : Icon(Icons.favorite_outlined, color: Colors.black,
-              ),
+                  ? Icon(Icons.favorite, color: Colors.pink)
+                  : Icon(
+                      Icons.favorite_outlined,
+                      color: Colors.black,
+                    ),
               onPressed: () {
                 setState(() {
                   curtiu = true;
-                  x = x+1;
+                  x = x + 1;
                 });
               },
             ),
@@ -95,6 +129,16 @@ class Home extends StatelessWidget {
                 size: 36, color: Color.fromARGB(255, 233, 53, 40)),
             title: Text("Curtir"),
             subtitle: Text("Exemplo de Curtir e Descurtir"),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, '/cadastro');
+            },
+            leading: Icon(Icons.app_registration,
+                size: 36, color: Color.fromARGB(255, 223, 113, 41)),
+            title: Text("Cadastro"),
+            subtitle: Text("Exemplo de Cadastro"),
             trailing: Icon(Icons.chevron_right),
           ),
         ],
@@ -146,8 +190,12 @@ class _ContadorState extends State<Contador> {
               child: Text("Decrementa"),
             )
           ],
+          
         ),
       ),
+
+      
+
     );
   }
 }
