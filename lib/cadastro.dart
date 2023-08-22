@@ -11,6 +11,11 @@ class Cadastro extends StatefulWidget {
 }
 
 class _CadastroState extends State<Cadastro> {
+  var nomeController = TextEditingController();
+  var emailController = TextEditingController();
+  var senhaController = TextEditingController();
+
+
   // uma variável declarada que vai controlar o estado
   bool curtiu = false;
   int x = 0;
@@ -26,6 +31,7 @@ class _CadastroState extends State<Cadastro> {
         padding: EdgeInsets.all(16),
           children: [
             TextFormField(
+              controller: nomeController,
               cursorColor: Color.fromARGB(255, 106, 17, 128),
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.person, color: Color.fromARGB(255, 31, 17, 219)),
@@ -38,6 +44,7 @@ class _CadastroState extends State<Cadastro> {
               height: 20,
             ),
             TextFormField(
+              controller: emailController,
               cursorColor: Color.fromARGB(255, 106, 17, 128),
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.email, color: Color.fromARGB(255, 31, 17, 219)),
@@ -51,6 +58,7 @@ class _CadastroState extends State<Cadastro> {
             ),
 
             TextField(
+              controller: senhaController,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.lock, color: Color.fromARGB(255, 31, 17, 219) ),
               hintText: "Informe sua senha",
@@ -81,7 +89,12 @@ class _CadastroState extends State<Cadastro> {
             ),
 
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                print("O botão salvar foi clicado");
+                print(nomeController.text);
+                print(emailController.text);
+                print(senhaController.text);
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 50, 17, 97)
               ),
