@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-
-
 class Home extends StatelessWidget {
   const Home({super.key});
 
@@ -43,6 +41,16 @@ class Home extends StatelessWidget {
                 size: 36, color: Color.fromARGB(255, 223, 113, 41)),
             title: Text("Cadastro"),
             subtitle: Text("Exemplo de Cadastro"),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, '/login');
+            },
+            leading: Icon(Icons.login,
+                size: 36, color: Color.fromARGB(255, 64, 119, 223)),
+            title: Text("login"),
+            subtitle: Text("Exemplo de login"),
             trailing: Icon(Icons.chevron_right),
           ),
         ],
